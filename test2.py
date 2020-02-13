@@ -47,21 +47,19 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN:
 
-            if event.key == pygame.K_DOWN:
-                print("pageup")
-                if float(delta) + 0.005 != 17:
-                    delta = str(float(delta) + 0.005)
-                    request()
-            if event.key == pygame.K_UP:
-                print('pagedown')
-                if float(delta) - 0.005 != 0:
-                    delta = str(float(delta) + 0.005)
-                    request()
+            if event.key == 280:
+                if float(delta) + 2 < 17:
+                    delta = str(float(delta) + 2)
+                    print(delta)
+                    map = request()
+            if event.key == 281:
+                if float(delta) - 2 > 0:
+                    delta = str(float(delta) - 2)
+                    print(delta)
+                    map = request()
     pygame.display.flip()
     screen.blit(pygame.image.load(map), (0, 0))
 
-
 pygame.quit()
-
 
 os.remove(map)
