@@ -55,19 +55,31 @@ screen = pygame.display.set_mode((720, 450))
 screen.fill((255, 255, 255))
 font = pygame.font.Font(None, 40)
 text = font.render("Схема", 1, (0, 0, 0))
-text_x = 600
-text_y = 0
+text_x = 620
+text_y = 1
+text_w = text.get_width()
+text_h = text.get_height()
+pygame.draw.rect(screen, (0, 0, 0), (600, text_y - 10,
+                                           630, text_h + 20), 3)
 screen.blit(text, (text_x, text_y))
 font = pygame.font.Font(None, 40)
 text = font.render("Спутник", 1, (0, 0, 0))
 text_x = 600
-text_y = 40
+text_y = 48
+text_w = text.get_width()
+text_h = text.get_height()
+pygame.draw.rect(screen, (0, 0, 0), (600, text_y - 10,
+                                           text_w + 20, text_h + 20), 3)
 screen.blit(text, (text_x, text_y))
 font = pygame.font.Font(None, 40)
 text = font.render("Гибрид", 1, (0, 0, 0))
-text_x = 600
-text_y = 80
+text_x = 610
+text_y = 97
 screen.blit(text, (text_x, text_y))
+text_w = text.get_width()
+text_h = text.get_height()
+pygame.draw.rect(screen, (0, 0, 0), (600, text_y - 10,
+                                           text_w + 20, text_h + 20), 3)
 
 
 
@@ -90,22 +102,22 @@ while running:
                     map = request()
             if event.key == pygame.K_UP:
                 if float(coord_y) + 1 < 80:
-                    coord_y = str(float(coord_y) + 1)
+                    coord_y = str(float(coord_y) + 0.001)
                     print(coord_y)
                     map = request()
             if event.key == pygame.K_DOWN:
                 if float(coord_y) - 1 > -80:
-                    coord_y = str(float(coord_y) - 1)
+                    coord_y = str(float(coord_y) - 0.001)
                     print(coord_y)
                     map = request()
             if event.key == pygame.K_LEFT:
                 if float(coord_x) - 1 > -180:
-                    coord_x = str(float(coord_x) - 1)
+                    coord_x = str(float(coord_x) - 0.001)
                     print(coord_x)
                     map = request()
             if event.key == pygame.K_RIGHT:
                 if float(coord_x) + 1 < 180:
-                    coord_x = str(float(coord_x) + 1)
+                    coord_x = str(float(coord_x) + 0.001)
                     print(coord_x)
                     map = request()
             if event.key == pygame.K_1:
