@@ -58,17 +58,25 @@ while running:
                     print(delta)
                     map = request()
             if event.key == pygame.K_UP:
-                coord_y = str(float(coord_y) + 2)
-                map = request()
+                if float(coord_y) + 1 < 80:
+                    coord_y = str(float(coord_y) + 1)
+                    print(coord_y)
+                    map = request()
             elif event.key == pygame.K_DOWN:
-                coord_y = str(float(coord_y) - 2)
-                map = request()
+                if float(coord_y) - 1 > -80:
+                    coord_y = str(float(coord_y) - 1)
+                    print(coord_y)
+                    map = request()
             elif event.key == pygame.K_LEFT:
-                coord_x = str(float(coord_x) - 2)
-                map = request()
+                if float(coord_x) - 1 > -180:
+                    coord_x = str(float(coord_x) - 1)
+                    print(coord_x)
+                    map = request()
             elif event.key == pygame.K_RIGHT:
-                coord_x = str(float(coord_x) + 2)
-                map = request()
+                if float(coord_x) + 1 < 180:
+                    coord_x = str(float(coord_x) + 1)
+                    print(coord_x)
+                    map = request()
     pygame.display.flip()
     screen.blit(pygame.image.load(map), (0, 0))
 
