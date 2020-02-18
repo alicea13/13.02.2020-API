@@ -14,13 +14,35 @@ def on_click(cell_coords):
     global delta, coord_x, coord_y, tip
     if cell_coords[0] > 600 and cell_coords[1] < 40:
         tip = "map"
+        clean()
+        pygame.draw.rect(screen, (0, 255, 0), (602, -6,
+                                             627, 44), 0)
+        font = pygame.font.Font(None, 40)
+        text_x = 620
+        text_y = 1
+        text = font.render("Схема", 1, (0, 0, 0))
         map = request()
     if cell_coords[0] > 600 and 40 < cell_coords[1] < 80:
         tip = "sat"
+        clean()
+        pygame.draw.rect(screen, (0, 255, 0), (602, 41,
+                                             132, 44), 0)
+        font = pygame.font.Font(None, 40)
+        text = font.render("Спутник", 1, (0, 0, 0))
+        text_x = 600
+        text_y = 48
         map = request()
-    if cell_coords[0] > 600 and 80 < cell_coords[1] < 120:
+    if cell_coords[0] > 600 and 95 < cell_coords[1] < 135:
         tip = "sat,skl"
+        clean()
+        pygame.draw.rect(screen, (0, 255, 0), (602, 88,
+                                             122, 44), 0)
+        font = pygame.font.Font(None, 40)
+        text = font.render("Гибрид", 1, (0, 0, 0))
+        text_x = 610
+        text_y = 97
         map = request()
+    screen.blit(text, (text_x, text_y))
 
 
 def request():
@@ -59,8 +81,10 @@ text_x = 620
 text_y = 1
 text_w = text.get_width()
 text_h = text.get_height()
-pygame.draw.rect(screen, (0, 0, 0), (600, text_y - 10,
-                                           630, text_h + 20), 3)
+pygame.draw.rect(screen, (0, 0, 0), (600, -9,
+                                           630, 48), 3)
+pygame.draw.rect(screen, (0, 255, 0), (602, -6,
+                                             627, 44), 0)
 screen.blit(text, (text_x, text_y))
 font = pygame.font.Font(None, 40)
 text = font.render("Спутник", 1, (0, 0, 0))
@@ -68,8 +92,9 @@ text_x = 600
 text_y = 48
 text_w = text.get_width()
 text_h = text.get_height()
-pygame.draw.rect(screen, (0, 0, 0), (600, text_y - 10,
-                                           text_w + 20, text_h + 20), 3)
+
+pygame.draw.rect(screen, (0, 0, 0), (600,  38,
+                                           135, 48), 3)
 screen.blit(text, (text_x, text_y))
 font = pygame.font.Font(None, 40)
 text = font.render("Гибрид", 1, (0, 0, 0))
@@ -78,8 +103,33 @@ text_y = 97
 screen.blit(text, (text_x, text_y))
 text_w = text.get_width()
 text_h = text.get_height()
-pygame.draw.rect(screen, (0, 0, 0), (600, text_y - 10,
-                                           text_w + 20, text_h + 20), 3)
+pygame.draw.rect(screen, (0, 0, 0), (600, 85,
+                                           125, 48), 3)
+
+
+def clean():
+    pygame.draw.rect(screen, (255, 255, 255), (602, -6,
+                                               627, 44), 0)
+    pygame.draw.rect(screen, (255, 255, 255), (602, 41,
+                                           132, 44), 0)
+    pygame.draw.rect(screen, (255, 255, 255), (602, 88,
+                                         122, 44), 0)
+    font = pygame.font.Font(None, 40)
+    text = font.render("Схема", 1, (0, 0, 0))
+    text_x = 620
+    text_y = 1
+    screen.blit(text, (text_x, text_y))
+    font = pygame.font.Font(None, 40)
+    text = font.render("Спутник", 1, (0, 0, 0))
+    text_x = 600
+    text_y = 48
+    screen.blit(text, (text_x, text_y))
+    font = pygame.font.Font(None, 40)
+    text = font.render("Гибрид", 1, (0, 0, 0))
+    text_x = 610
+    text_y = 97
+    screen.blit(text, (text_x, text_y))
+
 
 
 
